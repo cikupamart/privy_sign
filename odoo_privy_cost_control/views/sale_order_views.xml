@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_privy_control" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.privy.control</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_send_so_to_privy" type="object" 
+                        string="Kirim ke Privy" 
+                        class="oe_highlight"
+                        invisible="not use_privy_signature or privy_status in ['sent', 'signed']"
+                        groups="sales_team.group_sale_manager"/>
+
+                <button name="action_download_signed_so" type="object" 
+                        string="Ambil SO Signed" 
+                        class="btn-secondary"
+                        invisible="privy_status != 'signed'"
+                        groups="sales_team.group_sale_manager"/>
+            </xpath>
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="use_privy_signature" groups="sales_team.group_sale_manager"/>
+                <field name="privy_status" widget="badge" decoration-info="privy_status == 'sent'" decoration-success="privy_status == 'signed'" decoration-danger="privy_status == 'rejected'" invisible="not use_privy_signature"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

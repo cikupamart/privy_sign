@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_privy_usage_report_tree" model="ir.ui.view">
+        <field name="name">privy.usage.report.tree</field>
+        <field name="model">privy.usage.report</field>
+        <field name="arch" type="xml">
+            <list string="Rekapitulasi Penggunaan Privy" create="false" edit="false" delete="false">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="document_type"/>
+                <field name="partner_id"/>
+                <field name="amount_total" sum="Total Nominal"/>
+                <field name="privy_status" widget="badge" decoration-info="privy_status == 'sent'" decoration-success="privy_status == 'signed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_privy_usage_report_pivot" model="ir.ui.view">
+        <field name="name">privy.usage.report.pivot</field>
+        <field name="model">privy.usage.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Analisis Penggunaan Privy" disable_linking="True">
+                <field name="document_type" type="row"/>
+                <field name="privy_status" type="col"/>
+                <field name="amount_total" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_privy_usage_report" model="ir.actions.act_window">
+        <field name="name">Laporan Kuota Privy</field>
+        <field name="res_model">privy.usage.report</field>
+        <field name="view_mode">pivot,list,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Belum ada rekapitulasi penggunaan Privy.
+            </p>
+            <p>
+                Laporan ini merangkum seluruh dokumen (Invoice, Sales Order, Purchase Order) yang menggunakan TTE Privy beserta nilai nominal transaksinya.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_privy_usage_report"
+              name="Laporan Privy"
+              parent="account.menu_finance_reports"
+              action="action_privy_usage_report"
+              sequence="100"/>
+</odoo>

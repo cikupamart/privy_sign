@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_move_privy,account.move.privy.access,account.model_account_move,base.group_user,1,1,1,1
+access_sale_order_privy,sale.order.privy.access,sale.model_sale_order,base.group_user,1,1,1,1
+access_purchase_order_privy,purchase.order.privy.access,purchase.model_purchase_order,base.group_user,1,1,1,1
+access_privy_document_signer,privy.document.signer.access,model_privy_document_signer,base.group_user,1,1,1,1
+access_privy_usage_report,privy.usage.report.access,model_privy_usage_report,base.group_user,1,1,1,1

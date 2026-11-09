@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_privy" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.privy</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='invoicing_settings']" position="after">
+                <block title="PrivyID Digital Signature &amp; Cost Control" name="privy_setting_container">
+                    <setting id="privy_api_key_setting" help="Konfigurasi API Key dan pengaturan kuota TTE Privy">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="privy_api_key" class="col-lg-3 o_light_label"/>
+                                <field name="privy_api_key" password="True"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="privy_environment" class="col-lg-3 o_light_label"/>
+                                <field name="privy_environment"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="privy_min_amount" class="col-lg-3 o_light_label"/>
+                                <field name="privy_min_amount"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

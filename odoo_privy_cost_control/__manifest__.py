@@ -1,0 +1,21 @@
+{
+    'name': 'Privy Digital Signature & Cost Control',
+    'version': '18.0.2.0.0',
+    'price': 29.99,
+    'currency': 'EUR', 
+    'category': 'Accounting/Sales/Purchase',
+    'summary': 'Integrasi TTE PrivyID untuk Odoo 18 dengan kontrol biaya threshold, multi-signer, rekapitulasi, dan auto-webhook.',
+    'author': 'SENJA Techno',
+    'depends': ['base', 'account', 'sale', 'purchase'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/res_config_settings_views.xml',
+        'views/account_move_views.xml',
+        'views/sale_order_views.xml',
+        'views/purchase_order_views.xml',
+        'views/privy_report_views.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'license': 'LGPL-3',
+}
