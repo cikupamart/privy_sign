@@ -1,7 +1,7 @@
 {
     'name': 'Privy Digital Signature & Cost Control',
     'version': '18.0.2.0.0',
-    'price': 29.99,
+    'price': 4.99,
     'currency': 'EUR', 
     'category': 'Accounting/Sales/Purchase',
     'summary': 'Integrasi TTE PrivyID untuk Odoo 18 dengan kontrol biaya threshold, multi-signer, rekapitulasi, dan auto-webhook.',
